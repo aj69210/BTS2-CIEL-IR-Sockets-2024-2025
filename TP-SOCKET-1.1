@@ -1,0 +1,17 @@
+uint16_t port = NetworkPort;
+	sf::Socket::Status status;
+
+	status = _socket.bind(port);
+
+	while (status != sf::Socket::Status::Done)
+	{
+		port++;
+		status = _socket.bind(port);
+	}
+
+	if (port == NetworkPort + 1000)
+	{
+		std::cerr << "port error" << port << std::endl;
+	}
+	_socketSelector.add(_socket);
+	return true;
