@@ -84,6 +84,12 @@ bool NetworkGame::HostGame()
     // 1. Configurer le listener TCP sur NetworkPort
     // 2. Ajouter le listener au sélecteur
     // 3. Définir _isServer à true
+
+	sf::TcpListener listener;
+	sf::SocketSelector selector;
+	selector.add(listener)
+	std::vector<sf::TcpSocket*> clients;
+	bool isServer;
     return true;
 }
 ```
