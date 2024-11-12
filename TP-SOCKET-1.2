@@ -1,0 +1,7 @@
+if (nowMs- _lastDeclareTime >= DeclareGameServerDelayMs)
+		{
+		sf::Packet packet;
+			packet << MagicPacket;
+			packet << _localServerName;
+			_socket.send(packet, sf::IpAddress::Broadcast, port);
+		}
